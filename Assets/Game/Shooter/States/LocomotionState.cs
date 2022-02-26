@@ -5,16 +5,17 @@ public class LocomotionState : IState
 {
     public bool IsComplete { get; set; }
 
-    private PlayerShoot shootingComponent;
+    private ActiveShootingComponent shootingComponent;
 
-    public LocomotionState(PlayerShoot shootingComponent)
+    public LocomotionState(ActiveShootingComponent shootingComponent)
     {
         this.shootingComponent = shootingComponent;
     }
 
     public void OnEnter()
     {
-        shootingComponent.enabled = true;
+        if (shootingComponent.Current != null)
+            shootingComponent.Current.enabled = true;
     }
 
     public void Tick()
@@ -24,6 +25,7 @@ public class LocomotionState : IState
 
     public void OnExit()
     {
-        shootingComponent.enabled = false;
+        if (shootingComponent.Current != null)
+            shootingComponent.Current.enabled = false;
     }
 }

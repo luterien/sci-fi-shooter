@@ -3,6 +3,6 @@ using UnityEngine;
 
 public enum ShootingType
 {
-    Regular,
-    Machine
+    Firearm,
+    MachineGun
 }

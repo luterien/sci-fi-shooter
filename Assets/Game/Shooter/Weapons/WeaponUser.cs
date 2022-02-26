@@ -8,10 +8,11 @@ public class WeaponUser : MonoBehaviour
     public event Action<Weapon> OnWeaponUnequip;
     public event Action<Weapon> OnWeaponReload;
 
+    [Header("References")]
+    public ActiveShootingComponent activeShootingComponent;
+
     [Header("Dependencies")]
     public ShooterAnimator animator;
-    public PlayerShoot playerShoot;
-    public WeaponUser user;
 
     public List<WeaponSlot> weaponSlots;
 
@@ -26,14 +27,19 @@ public class WeaponUser : MonoBehaviour
     private UnequipState unequipState;
     private ReloadWeaponState reloadState;
 
+    private void Awake()
+    {
+        Execute();
+    }
+
     public void Execute()
     {
         stateMachine = new StateMachine(true);
 
-        locomotionState = new LocomotionState(playerShoot);
-        equipState = new EquipState(user, animator);
-        unequipState = new UnequipState(user, animator);
-        reloadState = new ReloadWeaponState(user, animator);
+        locomotionState = new LocomotionState(activeShootingComponent);
+        equipState = new EquipState(this, animator);
+        unequipState = new UnequipState(this, animator);
+        reloadState = new ReloadWeaponState(this, animator);
 
         stateMachine.AddTransition(equipState, locomotionState, () => equipState.IsComplete);
         stateMachine.AddTransition(unequipState, locomotionState, () => unequipState.IsComplete);
@@ -78,7 +84,7 @@ public class WeaponUser : MonoBehaviour
 
     public void Reload()
     {
-
+        stateMachine.SetState(reloadState);
     }
 
     public void SetWeaponEquipped(Weapon weapon)
