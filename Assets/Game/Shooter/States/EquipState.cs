@@ -43,6 +43,7 @@ public class EquipState : TimedState
     {
         base.OnExit();
 
+        user.EquippedWeapon = requestedWeapon;
         animator.EquipWeapon(false);
     }
 }

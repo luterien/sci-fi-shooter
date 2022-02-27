@@ -17,7 +17,7 @@ public class PlayerInput : MonoBehaviour
             {
                 weaponUser.TrySelectWeaponAtIndex(1);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            /*else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 weaponUser.TrySelectWeaponAtIndex(2);
             }
@@ -28,7 +28,7 @@ public class PlayerInput : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Alpha5))
             {
                 weaponUser.TrySelectWeaponAtIndex(4);
-            }
+            }*/
         }
     }
 }

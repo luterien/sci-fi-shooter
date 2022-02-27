@@ -27,5 +27,6 @@ public class UnequipState : TimedState
 
         animator.UnequipWeapon(false);
         user.SetWeaponEquipped(null);
+        user.EquippedWeapon = null;
     }
 }
