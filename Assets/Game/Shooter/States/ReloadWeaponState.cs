@@ -16,7 +16,6 @@ public class ReloadWeaponState : TimedState
     {
         base.OnEnter();
 
-        user.enabled = false;
         animator.ReloadWeapon();
     }
 
@@ -26,6 +25,5 @@ public class ReloadWeaponState : TimedState
 
         animator.ReloadWeapon(false);
         user.EquippedWeapon.Reload();
-        user.enabled = true;
     }
 }

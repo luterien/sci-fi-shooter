@@ -84,7 +84,8 @@ public class WeaponUser : MonoBehaviour
 
     public void Reload()
     {
-        stateMachine.SetState(reloadState);
+        if (EquippedWeapon != null)
+            stateMachine.SetState(reloadState);
     }
 
     public void SetWeaponEquipped(Weapon weapon)
