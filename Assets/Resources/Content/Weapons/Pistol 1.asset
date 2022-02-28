@@ -16,4 +16,4 @@ MonoBehaviour:
   range: 10
   mag: 30
   firePower: 10
-  shootingType: 0
+  shootingType: 1

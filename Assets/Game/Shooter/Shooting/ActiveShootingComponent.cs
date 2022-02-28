@@ -44,5 +44,5 @@ public class ActiveShootingComponent : MonoBehaviour
 public class ShootingComponentItem
 {
     public ShootingType shootingType;
-    public MonoBehaviour script;
+    public ShooterInput script;
 }

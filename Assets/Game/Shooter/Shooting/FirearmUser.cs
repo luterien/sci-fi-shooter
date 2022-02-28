@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class FirearmUser : MonoBehaviour
+public class FirearmUser : Shooter
 {
     public WeaponUser weaponUser;
-
-    private Timer cooldown;
 
     private Vector3 Direction {
         get {
@@ -15,27 +13,22 @@ public class FirearmUser : MonoBehaviour
         }
     }
 
-    private void Update()
+    public bool TryShoot()
     {
-        if (cooldown.IsRunning)
+        if (weaponUser.EquippedWeapon == null)
         {
-            cooldown.Tick(Time.deltaTime);
+            Debug.Log("No weapon equipped");
+            return false;
         }
-        else if (Input.GetMouseButtonDown(0))
+        else if (!weaponUser.EquippedWeapon.CanShoot)
         {
-            if (weaponUser.EquippedWeapon == null)
-            {
-                Debug.Log("No weapon equipped");
-            }
-            else if (!weaponUser.EquippedWeapon.CanShoot)
-            {
-                Debug.Log("No bullets");
-            }
-            else
-            {
-                Execute();
-                cooldown.Restart();
-            }
+            Debug.Log("No bullets");
+            return false;
+        }
+        else
+        {
+            Execute();
+            return true;
         }
     }
 
@@ -55,17 +48,5 @@ public class FirearmUser : MonoBehaviour
         }
 
         weaponUser.EquippedWeapon.OnShot();
-    }
-
-    private void OnEnable()
-    {
-        if (cooldown == null)
-            cooldown = new Timer(0.1f);
-        cooldown.Restart();
-    }
-
-    private void OnDisable()
-    {
-        cooldown.Stop();
     }
 }
