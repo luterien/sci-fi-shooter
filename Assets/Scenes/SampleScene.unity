@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponUser: {fileID: 2130268611}
-  positionSource: {fileID: 1433707034}
+  positionSource: {fileID: 946141422}
   directionSource: {fileID: 750247494}
   range: 5
   laserLine: {fileID: 1144870835}

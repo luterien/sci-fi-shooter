@@ -16,7 +16,22 @@ public class WeaponUser : MonoBehaviour
 
     public List<WeaponSlot> weaponSlots;
 
-    public Weapon EquippedWeapon { get; set; }
+    private Weapon equippedWeapon;
+    public Weapon EquippedWeapon {
+        get { return equippedWeapon; }
+        set {
+            if (value == null)
+            {
+                OnWeaponUnequip?.Invoke(equippedWeapon);
+            }
+            else
+            {
+                OnWeaponEquip?.Invoke(value);
+            }
+
+            equippedWeapon = value;
+        }
+    }
 
     private int equippedWeaponIndex = -1;
 
