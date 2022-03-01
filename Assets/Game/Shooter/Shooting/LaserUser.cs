@@ -5,6 +5,15 @@ public class LaserUser : Shooter
 {
     public WeaponUser weaponUser;
 
+    public Transform positionSource;
+    public Transform directionSource;
+
+    public float range;
+
+    public LineRenderer laserLine;
+    public Transform laserStart;
+    public Transform laserImpact;
+
     private Vector3 Direction {
         get {
             var fv = weaponUser.EquippedWeapon.directionSource.forward;
@@ -12,21 +21,42 @@ public class LaserUser : Shooter
             return fv;
         }
     }
-    public void TryShoot()
+
+    private void Update()
     {
-        weaponUser.EquippedWeapon.muzzleParticle.Play();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.SphereCast(weaponUser.EquippedWeapon.positionSource.position, 0.5f, Direction,
-            out RaycastHit hit, weaponUser.EquippedWeapon.range))
+        var hitSomething = Physics.Raycast(positionSource.position, directionSource.forward, out RaycastHit hit, range);
+
+        laserLine.SetPosition(0, positionSource.position);
+        laserStart.position = positionSource.position;
+
+        if (hitSomething)
         {
-            var damageable = hit.transform.GetComponent<IDamageable>();
-
-            if (damageable != null)
-            {
-                damageable.TakeDamage(new Damage(1f), hit.point);
-            }
+            laserLine.SetPosition(1, hit.point);
+            laserImpact.position = hit.point;
         }
+        else
+        {
+            laserLine.SetPosition(1, positionSource.position + directionSource.forward * range);
+            laserImpact.position = positionSource.position + directionSource.forward * range;
+        }
+    }
 
-        weaponUser.EquippedWeapon.OnShot();
+    private void OnEnable()
+    {
+        laserLine.gameObject.SetActive(true);
+        laserLine.positionCount = 2;
+
+        laserStart.gameObject.SetActive(true);
+        laserImpact.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        laserLine.gameObject.SetActive(false);
+
+        laserStart.gameObject.SetActive(false);
+        laserImpact.gameObject.SetActive(false);
     }
 }
