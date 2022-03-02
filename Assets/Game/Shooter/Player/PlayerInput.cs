@@ -17,15 +17,15 @@ public class PlayerInput : MonoBehaviour
             {
                 weaponUser.TrySelectWeaponAtIndex(1);
             }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                weaponUser.TrySelectWeaponAtIndex(2);
+            }
             else if (Input.GetKeyDown(KeyCode.R))
             {
                 weaponUser.Reload();
             }
-            /*else if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                weaponUser.TrySelectWeaponAtIndex(2);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            /*else if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 weaponUser.TrySelectWeaponAtIndex(3);
             }

@@ -13,6 +13,9 @@ public class Weapon : MonoBehaviour
     public Transform positionSource;
     public Transform directionSource;
 
+    [Header("Projectile")]
+    public GameObject projectile;
+
     [NonSerialized] public int mag;
     [NonSerialized] public float range;
 
