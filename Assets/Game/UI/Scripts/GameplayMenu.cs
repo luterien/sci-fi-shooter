@@ -10,7 +10,11 @@ public class GameplayMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            content.SetActive(!content.activeSelf);
+            var menuOpen = content.activeSelf;
+
+            Time.timeScale = menuOpen ? 1f : 0f;
+
+            content.SetActive(!menuOpen);
         }
     }
 }
