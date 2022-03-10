@@ -11,15 +11,22 @@ public class GameplayMenu : MonoBehaviour
 
     private InputAction menuKeys;
 
+    public Keyboard keyboard;
+
     private void Awake()
     {
-        playerControls = PlayerControlsProvider.Get();
-
-        menuKeys = playerControls.UI.Submit;
+        keyboard = Keyboard.current;
     }
 
     private void Update()
     {
-        
+        if (keyboard.escapeKey.isPressed)
+        {
+            var menuOpen = content.activeSelf;
+
+            Time.timeScale = menuOpen ? 1f : 0f;
+
+            content.SetActive(!menuOpen);
+        }
     }
 }
