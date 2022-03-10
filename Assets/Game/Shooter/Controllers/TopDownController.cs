@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TopDownController : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class TopDownController : MonoBehaviour
     private Vector3 cameraForward;
     private Vector3 cameraRight;
 
+    public PlayerControls playerControls;
+
+    private InputAction move;
+    private InputAction look;
+
     private void Awake()
     {
         cameraForward = Camera.main.transform.forward;
@@ -23,18 +29,33 @@ public class TopDownController : MonoBehaviour
 
         cameraRight = Camera.main.transform.right;
         cameraRight.y = 0f;
+
+        playerControls = new PlayerControls();
+
+        move = playerControls.Player.Move;
+        look = playerControls.Player.Look;
+    }
+
+    private void OnEnable()
+    {
+        move.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
     }
 
     private void Update()
     {
-        var v = Input.GetAxis("Vertical");
-        var h = Input.GetAxis("Horizontal");
+        var v = move.ReadValue<Vector2>().y;
+        var h = move.ReadValue<Vector2>().x;
 
         var hasMovement = (v != 0f || h != 0f);
 
         var screenPos = Camera.main.WorldToScreenPoint(mainBody.position);
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f))
         {

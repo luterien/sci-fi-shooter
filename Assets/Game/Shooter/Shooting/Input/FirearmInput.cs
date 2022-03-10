@@ -13,11 +13,6 @@ public class FirearmInput : ShooterInput
         {
             cooldown.Tick(Time.deltaTime);
         }
-        else if (Input.GetMouseButtonDown(0))
-        {
-            if (user.TryShoot())
-                cooldown.Restart();
-        }
     }
 
     private void OnEnable()

@@ -8,13 +8,6 @@ public class GameplayMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            var menuOpen = content.activeSelf;
-
-            Time.timeScale = menuOpen ? 1f : 0f;
-
-            content.SetActive(!menuOpen);
-        }
+        
     }
 }

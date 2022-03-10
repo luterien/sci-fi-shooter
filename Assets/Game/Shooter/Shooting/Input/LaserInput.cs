@@ -7,11 +7,7 @@ public class LaserInput : ShooterInput
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            user.enabled = true;
-
-        if (Input.GetMouseButtonUp(0))
-            user.enabled = false;
+        
     }
 
     private void OnDisable()
