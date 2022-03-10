@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FirearmInput : ShooterInput
 {
@@ -7,11 +8,23 @@ public class FirearmInput : ShooterInput
 
     private Timer cooldown;
 
+    private InputAction fire;
+
+    private void Awake()
+    {
+        fire = PlayerControlsProvider.Get().Player.Fire;
+    }
+
     private void Update()
     {
         if (cooldown.IsRunning)
         {
             cooldown.Tick(Time.deltaTime);
+        } 
+        else if (fire.IsPressed())
+        {
+            if (user.TryShoot())
+                cooldown.Restart();
         }
     }
 
@@ -19,11 +32,14 @@ public class FirearmInput : ShooterInput
     {
         if (cooldown == null)
             cooldown = new Timer(0.1f);
+
         cooldown.Restart();
+        fire.Enable();
     }
 
     private void OnDisable()
     {
         cooldown.Stop();
+        fire.Disable();
     }
 }

@@ -30,5 +30,9 @@ public class HotkeyInput : MonoBehaviour
         {
             weaponUser.TrySelectWeaponAtIndex(2);
         }
+        else if (keyboard.rKey.isPressed)
+        {
+            weaponUser.Reload();
+        }
     }
 }

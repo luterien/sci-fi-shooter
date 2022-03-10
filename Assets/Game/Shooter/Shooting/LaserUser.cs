@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LaserUser : Shooter
 {
@@ -24,7 +25,7 @@ public class LaserUser : Shooter
 
     private void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         var hitSomething = Physics.Raycast(positionSource.position, directionSource.forward, out RaycastHit hit, range);
 
