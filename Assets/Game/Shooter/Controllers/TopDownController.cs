@@ -20,7 +20,6 @@ public class TopDownController : MonoBehaviour
     public PlayerControls playerControls;
 
     private InputAction move;
-    private InputAction look;
 
     private void Awake()
     {
@@ -30,10 +29,9 @@ public class TopDownController : MonoBehaviour
         cameraRight = Camera.main.transform.right;
         cameraRight.y = 0f;
 
-        playerControls = new PlayerControls();
+        playerControls = PlayerControlsProvider.Get();
 
         move = playerControls.Player.Move;
-        look = playerControls.Player.Look;
     }
 
     private void OnEnable()
