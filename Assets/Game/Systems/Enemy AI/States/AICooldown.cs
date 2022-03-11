@@ -15,7 +15,6 @@ public class AICooldown : TimedState
     public override void OnEnter()
     {
         base.OnEnter();
-
-        animator.SetFloat(Animations.SPEED, 0f);
+        animator.SetBool("Moving", false);
     }
 }

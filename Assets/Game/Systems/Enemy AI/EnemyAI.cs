@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
     protected StateMachine stateMachine;
 
     private ITargetProvider targetProvider;
-    private IAstarAI pathfinder;
+    private AIPath pathfinder;
 
     protected AILocomotion locomotion;
     protected AIChase chase;
@@ -16,10 +16,11 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Dependencies")]
     public Transform mainBody;
-    public Transform target;
-
-    [Header("Refs")]
+    [Space]
     public Animator animator;
+
+    [Header("Settings")]
+    public float attackRange = 0.5f;
 
     private void Awake()
     {
@@ -41,12 +42,12 @@ public class EnemyAI : MonoBehaviour
     private void LoadDependencies()
     {
         targetProvider = GetComponent<ITargetProvider>();
-        pathfinder = GetComponent<IAstarAI>();
+        pathfinder = GetComponent<AIPath>();
     }
 
     private void SetUpStateMachine()
     {
-        stateMachine = new StateMachine();
+        stateMachine = new StateMachine(true);
 
         attack = new AIAttack(animator);
         chase = new AIChase(animator, targetProvider, pathfinder);
@@ -55,18 +56,19 @@ public class EnemyAI : MonoBehaviour
 
         bool hasTarget() => targetProvider.Target != null;
         bool hasNoTarget() => targetProvider.Target == null;
-        bool targetInAttackRange() => hasTarget() && hasTarget();
+        bool targetInRange() => pathfinder.remainingDistance < attackRange;
+        bool targetExistsInAttackRange() => hasTarget() && targetInRange();
         bool targetOutOfAttackRange() => hasTarget() && hasTarget();
         bool attackComplete() => attack.IsComplete;
-        bool cdOverTargetInRange() => cooldown.IsComplete && targetInAttackRange();
+        bool cdOverTargetInRange() => cooldown.IsComplete && targetExistsInAttackRange();
 
         stateMachine.AddTransition(locomotion, chase, hasTarget);
         stateMachine.AddTransition(chase, locomotion, hasNoTarget);
-        stateMachine.AddTransition(chase, attack, targetInAttackRange);
+        stateMachine.AddTransition(chase, attack, targetExistsInAttackRange);
         stateMachine.AddTransition(attack, cooldown, attackComplete);
         stateMachine.AddTransition(cooldown, locomotion, hasNoTarget);
-        stateMachine.AddTransition(cooldown, chase, targetOutOfAttackRange);
         stateMachine.AddTransition(cooldown, attack, cdOverTargetInRange);
+        stateMachine.AddTransition(cooldown, chase, targetOutOfAttackRange);
 
         stateMachine.SetState(locomotion);
     }

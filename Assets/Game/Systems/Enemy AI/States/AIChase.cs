@@ -9,11 +9,11 @@ public class AIChase : IState
     private Transform target;
 
     private ITargetProvider targetProvider;
-    private IAstarAI pathfinder;
+    private AIPath pathfinder;
 
     private Animator animator;
 
-    public AIChase(Animator animator, ITargetProvider targetProvider, IAstarAI pathfinder)
+    public AIChase(Animator animator, ITargetProvider targetProvider, AIPath pathfinder)
     {
         this.targetProvider = targetProvider;
         this.pathfinder = pathfinder;
@@ -26,7 +26,7 @@ public class AIChase : IState
 
         pathfinder.onSearchPath += Tick;
 
-        animator.SetFloat(Animations.SPEED, 1f);
+        animator.SetBool("Moving", true);
     }
 
     public void Tick()
@@ -37,11 +37,21 @@ public class AIChase : IState
     public void OnExit()
     {
         pathfinder.onSearchPath -= Tick;
+        pathfinder.canMove = false;
+
+        animator.SetBool("Moving", false);
     }
 
     private void SetDestination()
     {
         if (target != null && pathfinder != null)
+        {
             pathfinder.destination = target.position;
+            pathfinder.canMove = true;
+        }
+        else
+        {
+            pathfinder.canMove = false;
+        }
     }
 }

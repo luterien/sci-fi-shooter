@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AIAttack : TimedState
 {
-    protected override float Duration { get { return 1f; } }
+    protected override float Duration { get { return 2.333f; } }
 
     private Animator animator;
 
@@ -15,12 +15,12 @@ public class AIAttack : TimedState
     public override void OnEnter()
     {
         base.OnEnter();
-        animator.SetBool("Attack", true);
+        animator.SetBool("Attack1", true);
     }
 
     public override void OnExit()
     {
         base.OnExit();
-        animator.SetBool("Attack", false);
+        animator.SetBool("Attack1", false);
     }
 }

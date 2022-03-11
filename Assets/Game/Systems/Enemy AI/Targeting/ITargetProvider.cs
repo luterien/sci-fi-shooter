@@ -3,7 +3,5 @@ using UnityEngine;
 
 public interface ITargetProvider
 {
-    public Transform Target { get; }
-
-    Transform Get();
+    public Transform Target { get; set; }
 }

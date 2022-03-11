@@ -15,7 +15,7 @@ public class AILocomotion : IState
 
     public void OnEnter()
     {
-        animator.SetFloat(Animations.SPEED, 0f);
+        animator.SetBool("Moving", false);
     }
 
     public void Tick()
