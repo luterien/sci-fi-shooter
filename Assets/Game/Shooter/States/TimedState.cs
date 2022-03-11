@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class TimedState : IState
+abstract public class TimedState : IState
 {
     public bool IsComplete { get; set; }
 
+    abstract protected float Duration { get; }
+
     protected Timer timer;
 
-    public TimedState(float duration)
+    public TimedState()
     {
-        timer = new Timer(duration);
+        timer = new Timer(Duration);
     }
 
     virtual public void OnEnter()

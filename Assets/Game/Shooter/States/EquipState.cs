@@ -12,7 +12,9 @@ public class EquipState : TimedState
 
     private bool weaponEquipped = false;
 
-    public EquipState(WeaponUser user, ShooterAnimator animator) : base(duration: 0.867f)
+    protected override float Duration { get { return 0.867f; } }
+
+    public EquipState(WeaponUser user, ShooterAnimator animator)
     {
         this.animator = animator;
         this.user = user;

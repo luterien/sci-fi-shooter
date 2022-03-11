@@ -6,7 +6,9 @@ public class ReloadWeaponState : TimedState
     protected ShooterAnimator animator;
     protected WeaponUser user;
 
-    public ReloadWeaponState(WeaponUser user, ShooterAnimator animator) : base(duration: 2.167f)
+    protected override float Duration { get { return 2.167f; } }
+
+    public ReloadWeaponState(WeaponUser user, ShooterAnimator animator)
     {
         this.animator = animator;
         this.user = user;

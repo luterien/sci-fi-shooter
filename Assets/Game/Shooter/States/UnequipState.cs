@@ -8,7 +8,9 @@ public class UnequipState : TimedState
 
     public Weapon requestedWeapon;
 
-    public UnequipState(WeaponUser user, ShooterAnimator animator) : base(duration: 1.333f)
+    protected override float Duration { get { return 1.333f; } }
+
+    public UnequipState(WeaponUser user, ShooterAnimator animator)
     {
         this.animator = animator;
         this.user = user;
