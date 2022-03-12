@@ -10,7 +10,7 @@ public class WeaponListUI : MonoBehaviour
     {
         content.SetActive(true);
 
-        var uis = content.GetComponentsInChildren<EquipableWeaponUI>();
+        var uis = content.GetComponentsInChildren<EquipableWeaponUI>(true);
 
         foreach (var ui in uis)
         {
@@ -18,12 +18,12 @@ public class WeaponListUI : MonoBehaviour
             ui.Load(selected);
         }
 
-        StartCoroutine(DisplayWeapons(uis));
+        DisplayWeapons(uis);
     }
 
     public void UpdateWeapons(WeaponSlotUI slotUI)
     {
-        var uis = content.GetComponentsInChildren<EquipableWeaponUI>();
+        var uis = content.GetComponentsInChildren<EquipableWeaponUI>(true);
 
         foreach (var ui in uis)
         {
@@ -32,12 +32,11 @@ public class WeaponListUI : MonoBehaviour
         }
     }
 
-    private IEnumerator DisplayWeapons(EquipableWeaponUI[] uis)
+    private void DisplayWeapons(EquipableWeaponUI[] uis)
     {
         foreach (var ui in uis)
         {
             ui.Display(true);
-            yield return new WaitForSeconds(0.1f);
         }
     }
 }
