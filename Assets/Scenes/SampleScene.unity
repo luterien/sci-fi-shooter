@@ -941,6 +941,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a38ce342183a8345a7a5875a4debf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   mainBody: {fileID: 948075661}
   animator: {fileID: 544593489}
   movespeed: 4

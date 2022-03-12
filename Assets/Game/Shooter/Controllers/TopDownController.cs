@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class TopDownController : MonoBehaviour
 {
+    public LayerMask groundLayer;
+
     [Header("Components")]
     public Transform mainBody;
     public Animator animator;
@@ -56,7 +58,7 @@ public class TopDownController : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, groundLayer))
         {
             lookPoint = hitInfo.point;
             lookPoint.y = mainBody.position.y;
