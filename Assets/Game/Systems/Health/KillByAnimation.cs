@@ -6,6 +6,7 @@ public class KillByAnimation : MonoBehaviour
 {
     public Animator animator;
     public UnitHealth unitHealth;
+    public EnemyAI ai;
 
     private void Awake()
     {
@@ -15,6 +16,8 @@ public class KillByAnimation : MonoBehaviour
     public void Execute()
     {
         animator.SetTrigger(Animations.DEAD);
+
+        ai.IsDead = true;
 
         GetComponent<Damageable>().enabled = false;
         GetComponent<Collider>().enabled = false;

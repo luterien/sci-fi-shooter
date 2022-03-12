@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     protected AIChase chase;
     protected AIAttack attack;
     protected AICooldown cooldown;
+    protected AIDeath death;
 
     [Header("Dependencies")]
     public Transform mainBody;
@@ -21,6 +22,9 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Settings")]
     public float attackRange = 0.5f;
+
+    [NonSerialized]
+    public bool IsDead = false;
 
     private void Awake()
     {
@@ -53,6 +57,7 @@ public class EnemyAI : MonoBehaviour
         chase = new AIChase(animator, targetProvider, pathfinder);
         locomotion = new AILocomotion(animator);
         cooldown = new AICooldown(animator);
+        death = new AIDeath(animator);
 
         bool hasTarget() => targetProvider.Target != null;
         bool hasNoTarget() => targetProvider.Target == null;
@@ -61,6 +66,7 @@ public class EnemyAI : MonoBehaviour
         bool targetOutOfAttackRange() => hasTarget() && hasTarget();
         bool attackComplete() => attack.IsComplete;
         bool cdOverTargetInRange() => cooldown.IsComplete && targetExistsInAttackRange();
+        bool isDead() => IsDead;
 
         stateMachine.AddTransition(locomotion, chase, hasTarget);
         stateMachine.AddTransition(chase, locomotion, hasNoTarget);
@@ -69,6 +75,7 @@ public class EnemyAI : MonoBehaviour
         stateMachine.AddTransition(cooldown, locomotion, hasNoTarget);
         stateMachine.AddTransition(cooldown, attack, cdOverTargetInRange);
         stateMachine.AddTransition(cooldown, chase, targetOutOfAttackRange);
+        stateMachine.AddAnyTransition(death, isDead);
 
         stateMachine.SetState(locomotion);
     }
