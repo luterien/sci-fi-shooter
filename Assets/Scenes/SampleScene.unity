@@ -944,6 +944,7 @@ MonoBehaviour:
   mainBody: {fileID: 948075661}
   animator: {fileID: 544593489}
   movespeed: 4
+  deadZoneRange: 1
 --- !u!114 &239948934
 MonoBehaviour:
   m_ObjectHideFlags: 0

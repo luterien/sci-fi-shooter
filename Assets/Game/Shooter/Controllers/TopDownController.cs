@@ -10,6 +10,7 @@ public class TopDownController : MonoBehaviour
     public Animator animator;
 
     public float movespeed;
+    public float deadZoneRange = 1f;
 
     private Vector3 lookPoint;
     private Vector3 moveVector;
@@ -60,13 +61,15 @@ public class TopDownController : MonoBehaviour
             lookPoint = hitInfo.point;
             lookPoint.y = mainBody.position.y;
 
+            var inDeadZone = Vector3.Distance(hitInfo.point, mainBody.position) <= deadZoneRange;
+
             mainBody.LookAt(lookPoint);
 
             moveVector = hasMovement ? (v * cameraForward + cameraRight * h).normalized : Vector3.zero;
 
             mainBody.position += moveVector * movespeed * Time.deltaTime;
 
-            if (hasMovement)
+            if (hasMovement && !inDeadZone)
             {
                 var lookVector = (lookPoint - mainBody.position).normalized;
                 var moveVectorRight = Quaternion.Euler(0f, -90f, 0f) * moveVector;
