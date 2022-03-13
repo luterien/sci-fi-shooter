@@ -51,6 +51,9 @@ public class LaserUser : Shooter
 
         laserStart.gameObject.SetActive(true);
         laserImpact.gameObject.SetActive(true);
+
+        positionSource = weaponUser.EquippedWeapon.positionSource;
+        directionSource = weaponUser.EquippedWeapon.directionSource;
     }
 
     private void OnDisable()
