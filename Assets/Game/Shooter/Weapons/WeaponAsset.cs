@@ -14,4 +14,10 @@ public class WeaponAsset : ScriptableObject
 
     [Space(10)]
     public ShootingType shootingType;
+
+    [Header("Visuals")]
+    public GameObject prefab;
+
+    [Header("Projectile")]
+    public GameObject projectile;
 }

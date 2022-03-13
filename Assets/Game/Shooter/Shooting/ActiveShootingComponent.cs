@@ -27,7 +27,7 @@ public class ActiveShootingComponent : MonoBehaviour
     {
         foreach (var component in components)
         {
-            if (weapon.asset.shootingType == component.shootingType)
+            if (weapon.assignedAsset.shootingType == component.shootingType)
             {
                 Current = component.script;
                 component.script.enabled = true;

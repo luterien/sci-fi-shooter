@@ -2,29 +2,28 @@
 using System.Collections;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+[Serializable]
+public class Weapon
 {
-    public WeaponAsset asset;
-
-    [Header("Muzzle")]
+    public WeaponAsset assignedAsset;
+    [Space]
     public ParticleSystem muzzleParticle;
-
-    [Header("Shoot Settings")]
+    [Space]
     public Transform positionSource;
     public Transform directionSource;
-
-    [Header("Projectile")]
+    [Space]
     public GameObject projectile;
+    [Space]
+    public int mag;
+    public float range;
 
-    [NonSerialized] public int mag;
-    [NonSerialized] public float range;
+    private WeaponModel model;
 
     public bool CanShoot => mag > 0;
 
-    private void Awake()
+    public Weapon()
     {
-        mag = asset.mag;
-        range = asset.range;
+
     }
 
     public void OnShot()
@@ -32,8 +31,28 @@ public class Weapon : MonoBehaviour
         mag -= 1;
     }
 
-    internal void Reload()
+    public void Reload()
     {
-        mag = asset.mag;
+        mag = assignedAsset.mag;
     }
+
+    public void SetWeaponAsset(WeaponAsset asset, WeaponModel weaponModel)
+    {
+        assignedAsset = asset;
+
+        mag = asset.mag;
+        range = asset.range;
+        projectile = asset.projectile;
+
+        model = weaponModel;
+
+        muzzleParticle = weaponModel.muzzleParticle;
+        positionSource = weaponModel.positionSource;
+        directionSource = weaponModel.directionSource;
+    }
+}
+
+public class NullWeapon : Weapon
+{
+
 }

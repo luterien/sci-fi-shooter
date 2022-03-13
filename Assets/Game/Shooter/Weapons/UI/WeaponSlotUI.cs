@@ -33,7 +33,10 @@ public class WeaponSlotUI : MonoBehaviour
     public void SetWeapon(WeaponAsset asset)
     {
         this.asset = asset;
+
         weaponName.text = asset.name;
         weaponList.UpdateWeapons(this);
+
+        assignedSlot.SetWeapon(asset);
     }
 }

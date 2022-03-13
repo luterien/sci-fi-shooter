@@ -73,15 +73,15 @@ public class WeaponUser : MonoBehaviour
     {
         if (equippedWeaponIndex == -1)
         {
-            Equip(weaponSlots[index].Weapon);
+            Equip(weaponSlots[index].weapon);
         }
         else if (equippedWeaponIndex == index)
         {
-            Unequip(weaponSlots[index].Weapon);
+            Unequip(weaponSlots[index].weapon);
         }
         else
         {
-            Equip(weaponSlots[index].Weapon);
+            Equip(weaponSlots[index].weapon);
         }
     }
 
@@ -107,7 +107,7 @@ public class WeaponUser : MonoBehaviour
     {
         foreach (var slot in weaponSlots)
         {
-            var selected = slot.Weapon == weapon;
+            var selected = slot.weapon == weapon;
             slot.SetSelected(selected);
             if (selected)
                 equippedWeaponIndex = weaponSlots.IndexOf(slot);

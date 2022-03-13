@@ -17,3 +17,5 @@ MonoBehaviour:
   mag: 30
   firePower: 10
   shootingType: 3
+  prefab: {fileID: 116810656138428688, guid: 5437a79e7c323dd42a5c2de6d371e0c7, type: 3}
+  projectile: {fileID: 2315560803839092608, guid: 99bbfab2e0e660b4d8146baee002e531, type: 3}
