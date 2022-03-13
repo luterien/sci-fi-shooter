@@ -12,7 +12,7 @@ public class WeaponSlot : MonoBehaviour
 
     private void Awake()
     {
-        SetWeapon(defaultAsset);
+        SetWeapon(defaultAsset, false);
     }
 
     public void SetSelected(bool selected)
@@ -20,7 +20,7 @@ public class WeaponSlot : MonoBehaviour
         content.SetActive(selected);
     }
 
-    public void SetWeapon(WeaponAsset asset)
+    public void SetWeapon(WeaponAsset asset, bool active = true)
     {
         if (weapon != null && weapon.assignedAsset == asset)
             return;
@@ -34,6 +34,7 @@ public class WeaponSlot : MonoBehaviour
         Destroy(content);
 
         content = Instantiate(asset.prefab, transform);
+        content.SetActive(active);
 
         weapon = new Weapon();
         weapon.SetWeaponAsset(asset, content.GetComponent<WeaponModel>());

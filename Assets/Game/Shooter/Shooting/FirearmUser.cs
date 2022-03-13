@@ -49,10 +49,4 @@ public class FirearmUser : Shooter
 
         weaponUser.EquippedWeapon.OnShot();
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (weaponUser.EquippedWeapon != null)
-            Debug.DrawRay(weaponUser.EquippedWeapon.positionSource.position, Direction * weaponUser.EquippedWeapon.range, Color.black);
-    }
 }

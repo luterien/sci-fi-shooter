@@ -16,6 +16,8 @@ public class UnitDamageTaken : MonoBehaviour
 
     private void Health_OnUnitDamageTaken(DamageTaken damageTaken)
     {
+        if (damageTaken.hpLoss <= 0f) return;
+
         var damageText = Instantiate(damageTextPrefab, damageTextContainer);
         damageText.GetComponent<FloatingDamageText>().SetValue(damageTaken.hpLoss);
     }
