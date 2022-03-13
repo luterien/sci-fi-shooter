@@ -20,7 +20,7 @@ public class GameplayMenu : MonoBehaviour
 
     private void Update()
     {
-        if (keyboard.escapeKey.isPressed)
+        if (keyboard.escapeKey.wasPressedThisFrame)
         {
             var menuOpen = content.activeSelf;
 

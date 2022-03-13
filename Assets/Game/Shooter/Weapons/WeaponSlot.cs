@@ -1,14 +1,18 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 
 public class WeaponSlot : MonoBehaviour
 {
+    public static event Action<Weapon> OnWeaponSlotUpdate;
+
     [Header("Defaults")]
     public WeaponAsset defaultAsset;
 
     [Header("References")]
     public GameObject content;
     public Weapon weapon;
+
+    private WeaponAsset assignedAsset;
 
     private void Awake()
     {
@@ -20,7 +24,7 @@ public class WeaponSlot : MonoBehaviour
         content.SetActive(selected);
     }
 
-    public void SetWeapon(WeaponAsset asset, bool active = true)
+    public void SetWeapon(WeaponAsset asset, bool selected = true)
     {
         if (weapon != null && weapon.assignedAsset == asset)
             return;
@@ -33,10 +37,15 @@ public class WeaponSlot : MonoBehaviour
 
         Destroy(content);
 
+        assignedAsset = asset;
+
         content = Instantiate(asset.prefab, transform);
-        content.SetActive(active);
+        content.SetActive(selected);
 
         weapon = new Weapon();
         weapon.SetWeaponAsset(asset, content.GetComponent<WeaponModel>());
+
+        if (selected)
+            OnWeaponSlotUpdate?.Invoke(weapon);
     }
 }

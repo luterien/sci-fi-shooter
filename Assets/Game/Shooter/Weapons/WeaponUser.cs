@@ -60,7 +60,14 @@ public class WeaponUser : MonoBehaviour
         stateMachine.AddTransition(unequipState, locomotionState, () => unequipState.IsComplete);
         stateMachine.AddTransition(reloadState, locomotionState, () => reloadState.IsComplete);
 
+        WeaponSlot.OnWeaponSlotUpdate += SetEquippedWeapon;
+
         stateMachine.SetState(locomotionState);
+    }
+
+    private void SetEquippedWeapon(Weapon weapon)
+    {
+        EquippedWeapon = weapon;
     }
 
     private void Update()

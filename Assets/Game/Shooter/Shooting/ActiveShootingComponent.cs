@@ -13,6 +13,8 @@ public class ActiveShootingComponent : MonoBehaviour
     {
         weaponUser.OnWeaponEquip += WeaponUser_OnWeaponEquip;
         weaponUser.OnWeaponUnequip += WeaponUser_OnWeaponUnequip;
+
+        WeaponSlot.OnWeaponSlotUpdate += WeaponUser_OnWeaponEquip;
     }
 
     private void WeaponUser_OnWeaponUnequip(Weapon weapon)
