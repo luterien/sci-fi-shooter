@@ -48,6 +48,8 @@ MonoBehaviour:
   muzzleParticle: {fileID: 1935225545769916177}
   positionSource: {fileID: 1735570815726231355}
   directionSource: {fileID: 1735570815726231355}
+  leftHandPosition: {fileID: 1736814643610734451}
+  rightHandPosition: {fileID: 1736814643610734451}
 --- !u!1001 &1736814642164256816
 PrefabInstance:
   m_ObjectHideFlags: 0

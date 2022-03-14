@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &116810656138428689
 Transform:
   m_ObjectHideFlags: 0
@@ -49,6 +49,8 @@ MonoBehaviour:
   muzzleParticle: {fileID: 225543249051704643}
   positionSource: {fileID: 113005815390325431}
   directionSource: {fileID: 113005815390325431}
+  leftHandPosition: {fileID: 116810656138428689}
+  rightHandPosition: {fileID: 116810656138428689}
 --- !u!1001 &116810655422131282
 PrefabInstance:
   m_ObjectHideFlags: 0

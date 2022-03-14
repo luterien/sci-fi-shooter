@@ -17,7 +17,7 @@ public class Weapon
     public int mag;
     public float range;
 
-    private WeaponModel model;
+    public WeaponModel model;
 
     public bool CanShoot => mag > 0;
 

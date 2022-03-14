@@ -8,4 +8,8 @@ public class WeaponModel : MonoBehaviour
     [Space]
     public Transform positionSource;
     public Transform directionSource;
+
+    [Header("IK Settings")]
+    public Transform leftHandPosition;
+    public Transform rightHandPosition;
 }

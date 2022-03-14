@@ -10,6 +10,7 @@ public class WeaponUser : MonoBehaviour
 
     [Header("References")]
     public ActiveShootingComponent activeShootingComponent;
+    public IKWeaponControl IKWeaponControl;
 
     [Header("Dependencies")]
     public ShooterAnimator animator;
@@ -23,10 +24,12 @@ public class WeaponUser : MonoBehaviour
             if (value == null)
             {
                 OnWeaponUnequip?.Invoke(equippedWeapon);
+                IKWeaponControl.ActivateAnimation();
             }
             else
             {
                 OnWeaponEquip?.Invoke(value);
+                IKWeaponControl.ActivateIK(value.model);
             }
 
             equippedWeapon = value;
