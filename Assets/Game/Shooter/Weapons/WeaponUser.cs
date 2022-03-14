@@ -54,7 +54,7 @@ public class WeaponUser : MonoBehaviour
     {
         stateMachine = new StateMachine(true);
 
-        locomotionState = new LocomotionState(activeShootingComponent);
+        locomotionState = new LocomotionState(activeShootingComponent, IKWeaponControl);
         equipState = new EquipState(this, animator);
         unequipState = new UnequipState(this, animator);
         reloadState = new ReloadWeaponState(this, animator);

@@ -6,10 +6,12 @@ public class LocomotionState : IState
     public bool IsComplete { get; set; }
 
     private ActiveShootingComponent shootingComponent;
+    private IKWeaponControl IKWeaponControl;
 
-    public LocomotionState(ActiveShootingComponent shootingComponent)
+    public LocomotionState(ActiveShootingComponent shootingComponent, IKWeaponControl IKWeaponControl)
     {
         this.shootingComponent = shootingComponent;
+        this.IKWeaponControl = IKWeaponControl;
     }
 
     public void OnEnter()
@@ -27,5 +29,7 @@ public class LocomotionState : IState
     {
         if (shootingComponent.Current != null)
             shootingComponent.Current.enabled = false;
+
+        IKWeaponControl.ActivateAnimation();
     }
 }
