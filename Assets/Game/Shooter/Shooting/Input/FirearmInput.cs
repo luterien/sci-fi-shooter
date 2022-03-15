@@ -21,7 +21,7 @@ public class FirearmInput : ShooterInput
         {
             cooldown.Tick(Time.deltaTime);
         } 
-        else if (fire.IsPressed())
+        else if (fire.WasPressedThisFrame())
         {
             if (user.TryShoot())
                 cooldown.Restart();

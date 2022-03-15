@@ -18,19 +18,19 @@ public class HotkeyInput : MonoBehaviour
 
     private void Update()
     {
-        if (keyboard.digit1Key.IsPressed())
+        if (keyboard.digit1Key.wasPressedThisFrame)
         {
             weaponUser.TrySelectWeaponAtIndex(0);
         }
-        else if (keyboard.digit2Key.IsPressed())
+        else if (keyboard.digit2Key.wasPressedThisFrame)
         {
             weaponUser.TrySelectWeaponAtIndex(1);
         }
-        else if (keyboard.digit3Key.IsPressed())
+        else if (keyboard.digit3Key.wasPressedThisFrame)
         {
             weaponUser.TrySelectWeaponAtIndex(2);
         }
-        else if (keyboard.rKey.IsPressed())
+        else if (keyboard.rKey.wasPressedThisFrame)
         {
             weaponUser.Reload();
         }
