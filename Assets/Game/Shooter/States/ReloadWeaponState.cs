@@ -27,5 +27,7 @@ public class ReloadWeaponState : TimedState
 
         animator.ReloadWeapon(false);
         user.EquippedWeapon.Reload();
+
+        user.IKWeaponControl.ActivateIK(user.EquippedWeapon.model);
     }
 }
