@@ -2697,7 +2697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8524456688405495853, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: WeaponSlotUIManager, Assembly-CSharp
+      value: WeaponSlotUIManager, NewAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 8524456688405495853, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -2705,7 +2705,7 @@ PrefabInstance:
       objectReference: {fileID: 879136604}
     - target: {fileID: 8524456688405495853, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: WeaponSlotUI, Assembly-CSharp
+      value: WeaponSlotUI, NewAssembly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
@@ -3591,7 +3591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8524456688405495853, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: WeaponSlotUIManager, Assembly-CSharp
+      value: WeaponSlotUIManager, NewAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 8524456688405495853, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -3599,7 +3599,7 @@ PrefabInstance:
       objectReference: {fileID: 1051026098}
     - target: {fileID: 8524456688405495853, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: WeaponSlotUI, Assembly-CSharp
+      value: WeaponSlotUI, NewAssembly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
@@ -7160,7 +7160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8524456688405495853, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: WeaponSlotUIManager, Assembly-CSharp
+      value: WeaponSlotUIManager, NewAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 8524456688405495853, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -7168,7 +7168,7 @@ PrefabInstance:
       objectReference: {fileID: 3246920013095571504}
     - target: {fileID: 8524456688405495853, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: WeaponSlotUI, Assembly-CSharp
+      value: WeaponSlotUI, NewAssembly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fdf7aa3ef6043c42b6b6c88d08e3cd8, type: 3}
