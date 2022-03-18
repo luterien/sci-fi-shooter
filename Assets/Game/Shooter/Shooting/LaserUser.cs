@@ -15,6 +15,10 @@ public class LaserUser : Shooter
     public Transform laserStart;
     public Transform laserImpact;
 
+    private Transform previouslyHitObject;
+    private int hitCounter = 0;
+    private int maxHitCounter = 30;
+
     private Vector3 Direction {
         get {
             var fv = weaponUser.EquippedWeapon.directionSource.forward;
@@ -25,8 +29,6 @@ public class LaserUser : Shooter
 
     private void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-
         var hitSomething = Physics.Raycast(positionSource.position, directionSource.forward, out RaycastHit hit, range);
 
         laserLine.SetPosition(0, positionSource.position);
@@ -36,11 +38,35 @@ public class LaserUser : Shooter
         {
             laserLine.SetPosition(1, hit.point);
             laserImpact.position = hit.point;
+
+            var damageable = hit.transform.GetComponent<IDamageable>();
+
+            if (damageable != null)
+            {
+                if (!hit.transform.Equals(previouslyHitObject))
+                {
+                    hitCounter = 0;
+                }
+                else
+                {
+                    hitCounter += 1;
+
+                    if (hitCounter >= maxHitCounter)
+                    {
+                        damageable.TakeDamage(new Damage(1f), hit.point);
+                        hitCounter = 0;
+                    }
+                }
+            }
+
+            previouslyHitObject = hit.transform;
         }
         else
         {
             laserLine.SetPosition(1, positionSource.position + directionSource.forward * range);
             laserImpact.position = positionSource.position + directionSource.forward * range;
+
+            previouslyHitObject = null;
         }
     }
 

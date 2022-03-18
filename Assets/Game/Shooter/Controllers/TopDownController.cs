@@ -71,7 +71,7 @@ public class TopDownController : MonoBehaviour
 
             mainBody.position += moveVector * movespeed * Time.deltaTime;
 
-            if (hasMovement && !inDeadZone)
+            if (hasMovement)
             {
                 var lookVector = (lookPoint - mainBody.position).normalized;
                 var moveVectorRight = Quaternion.Euler(0f, -90f, 0f) * moveVector;
