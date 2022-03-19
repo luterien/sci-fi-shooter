@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 
 public class AIDeath : IState
@@ -7,14 +7,18 @@ public class AIDeath : IState
 
     private Animator animator;
 
-    public AIDeath(Animator animator)
+    private Action OnEnterAction;
+
+    public AIDeath(Animator animator, Action onEnterAction)
     {
         this.animator = animator;
+        this.OnEnterAction = onEnterAction;
     }
 
     public void OnEnter()
     {
         animator.SetTrigger(Animations.DEAD);
+        OnEnterAction?.Invoke();
     }
 
     public void Tick()

@@ -57,7 +57,7 @@ public class EnemyAI : MonoBehaviour
         chase = new AIChase(animator, targetProvider, pathfinder);
         locomotion = new AILocomotion(animator);
         cooldown = new AICooldown(animator);
-        death = new AIDeath(animator);
+        death = new AIDeath(animator, () => DisableEnemyLogic());
 
         bool hasTarget() => targetProvider.Target != null;
         bool hasNoTarget() => targetProvider.Target == null;
@@ -78,5 +78,10 @@ public class EnemyAI : MonoBehaviour
         stateMachine.AddAnyTransition(death, isDead);
 
         stateMachine.SetState(locomotion);
+    }
+
+    private void DisableEnemyLogic()
+    {
+        enabled = false;
     }
 }
