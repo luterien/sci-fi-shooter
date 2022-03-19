@@ -7,8 +7,6 @@ public class Weapon
 {
     public WeaponAsset assignedAsset;
     [Space]
-    public ParticleSystem muzzleParticle;
-    [Space]
     public Transform positionSource;
     public Transform directionSource;
     [Space]
@@ -46,9 +44,13 @@ public class Weapon
 
         model = weaponModel;
 
-        muzzleParticle = weaponModel.muzzleParticle;
         positionSource = weaponModel.positionSource;
         directionSource = weaponModel.directionSource;
+    }
+
+    public void PlayMuzzle()
+    {
+        model.muzzlePlayer.Play();
     }
 }
 

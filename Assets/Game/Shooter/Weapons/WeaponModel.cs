@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponModel : MonoBehaviour
 {
-    public ParticleSystem muzzleParticle;
+    public MuzzlePlayer muzzlePlayer;
     [Space]
     public Transform positionSource;
     public Transform directionSource;

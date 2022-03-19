@@ -34,7 +34,7 @@ public class RocketUser : MonoBehaviour
 
     private void Execute()
     {
-        weaponUser.EquippedWeapon.muzzleParticle.Play();
+        weaponUser.EquippedWeapon.PlayMuzzle();
 
         var projectile = Instantiate(weaponUser.EquippedWeapon.projectile);
         projectile.transform.position = weaponUser.EquippedWeapon.positionSource.position;

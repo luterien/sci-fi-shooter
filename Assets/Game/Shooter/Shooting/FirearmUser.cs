@@ -34,7 +34,7 @@ public class FirearmUser : Shooter
 
     private void Execute()
     {
-        weaponUser.EquippedWeapon.muzzleParticle.Play();
+        weaponUser.EquippedWeapon.PlayMuzzle();
 
         if (Physics.SphereCast(weaponUser.EquippedWeapon.positionSource.position, 0.5f, Direction,
             out RaycastHit hit, weaponUser.EquippedWeapon.range))

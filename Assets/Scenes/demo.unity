@@ -628,7 +628,6 @@ MonoBehaviour:
   content: {fileID: 207259995}
   weapon:
     assignedAsset: {fileID: 0}
-    muzzleParticle: {fileID: 0}
     positionSource: {fileID: 0}
     directionSource: {fileID: 0}
     projectile: {fileID: 0}
@@ -1455,7 +1454,6 @@ MonoBehaviour:
   content: {fileID: 0}
   weapon:
     assignedAsset: {fileID: 0}
-    muzzleParticle: {fileID: 0}
     positionSource: {fileID: 0}
     directionSource: {fileID: 0}
     projectile: {fileID: 0}
@@ -2772,7 +2770,6 @@ MonoBehaviour:
   content: {fileID: 0}
   weapon:
     assignedAsset: {fileID: 0}
-    muzzleParticle: {fileID: 0}
     positionSource: {fileID: 0}
     directionSource: {fileID: 0}
     projectile: {fileID: 0}
@@ -3330,7 +3327,6 @@ MonoBehaviour:
   content: {fileID: 1079809547}
   weapon:
     assignedAsset: {fileID: 0}
-    muzzleParticle: {fileID: 0}
     positionSource: {fileID: 0}
     directionSource: {fileID: 0}
     projectile: {fileID: 0}
@@ -4039,7 +4035,6 @@ MonoBehaviour:
   content: {fileID: 1431023531}
   weapon:
     assignedAsset: {fileID: 0}
-    muzzleParticle: {fileID: 0}
     positionSource: {fileID: 0}
     directionSource: {fileID: 0}
     projectile: {fileID: 0}
@@ -4245,7 +4240,6 @@ MonoBehaviour:
   content: {fileID: 0}
   weapon:
     assignedAsset: {fileID: 0}
-    muzzleParticle: {fileID: 0}
     positionSource: {fileID: 0}
     directionSource: {fileID: 0}
     projectile: {fileID: 0}
