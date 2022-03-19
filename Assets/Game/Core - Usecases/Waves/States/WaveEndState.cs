@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WaveEndState : WaveState
 {
-    public WaveEndState(WaveManager manager) : base(manager) { }
+    public WaveEndState(WaveManager manager, WaveManagerUI ui) : base(manager, ui) { }
 
     override public void OnEnter()
     {
@@ -17,6 +17,6 @@ public class WaveEndState : WaveState
 
     override public void OnExit()
     {
-
+        IsComplete = false;
     }
 }

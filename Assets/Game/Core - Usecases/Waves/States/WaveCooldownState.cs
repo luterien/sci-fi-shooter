@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WaveCooldownState : WaveState
 {
-    public WaveCooldownState(WaveManager manager) : base(manager) { }
+    public WaveCooldownState(WaveManager manager, WaveManagerUI ui) : base(manager, ui) { }
 
     override public void OnEnter()
     {

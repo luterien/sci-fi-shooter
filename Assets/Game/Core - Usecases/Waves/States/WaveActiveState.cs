@@ -3,20 +3,37 @@ using UnityEngine;
 
 public class WaveActiveState : WaveState
 {
-    public WaveActiveState(WaveManager manager) : base(manager) { }
+    private IWaveProvider waveProvider;
+    private Wave wave;
+
+    public WaveActiveState(WaveManager manager, WaveManagerUI ui, IWaveProvider waveProvider) : base(manager, ui) 
+    {
+        this.waveProvider = waveProvider;
+    }
 
     override public void OnEnter()
     {
+        wave = waveProvider.Get();
+        wave.OnStart();
 
+        ui.ToggleCurrentWaveUI(true);
+        ui.SetCurrentWaveText(string.Format("Wave {0}", wave.number));
     }
 
     override public void Tick()
     {
+        wave.Tick(Time.deltaTime);
 
+        if (wave.IsComplete)
+            IsComplete = true;
     }
 
     override public void OnExit()
     {
+        wave.OnEnd();
 
+        ui.ToggleCurrentWaveUI(false);
+
+        IsComplete = false;
     }
 }
