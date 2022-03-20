@@ -44,6 +44,8 @@ public class FirearmUser : Shooter, IDamager
             if (damageable != null)
             {
                 damageable.TakeDamage(new Damage(1f), hit.point, this);
+
+                GameController.Pause();
             }
 
             weaponUser.EquippedWeapon.PlayHitEffect(hit.point);
