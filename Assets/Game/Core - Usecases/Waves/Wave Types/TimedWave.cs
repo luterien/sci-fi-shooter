@@ -7,11 +7,11 @@ public class TimedWave : Wave
     private Timer timer;
     private ISpawner spawner;
 
-    public TimedWave(TimedWaveAsset asset, int number) : base(number)
+    public TimedWave(Spawnables spawnables, SpawnPoints points, TimedWaveAsset asset, int number) : base(number)
     {
         this.asset = asset;
 
-        spawner = new SpawnInIntervals(5f);
+        spawner = new SpawnInIntervals(spawnables, points, 5f);
     }
 
     public override void OnStart()

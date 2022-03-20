@@ -6930,6 +6930,7 @@ GameObject:
   - component: {fileID: 2076819603}
   - component: {fileID: 2076819602}
   - component: {fileID: 2076819604}
+  - component: {fileID: 2076819605}
   m_Layer: 0
   m_Name: Wave
   m_TagString: Untagged
@@ -6997,6 +6998,20 @@ MonoBehaviour:
   assets:
   - {fileID: 11400000, guid: c4bf000577436c0429b773c613eb932d, type: 2}
   - {fileID: 11400000, guid: 989d4b522d1db154cb3ab82947a4b908, type: 2}
+  points: {fileID: 2076819605}
+--- !u!114 &2076819605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076819600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81c116c4195b314fbe87442973af910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
 --- !u!1001 &2086274990
 PrefabInstance:
   m_ObjectHideFlags: 0

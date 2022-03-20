@@ -7,6 +7,9 @@ public class SimpleWaveDB : MonoBehaviour, IWaveProvider
 
     public List<WaveAsset> assets = new List<WaveAsset>();
 
+    [Header("Dependencies")]
+    public SpawnPoints points;
+
     private int waveIndex;
     private int number;
 
@@ -25,6 +28,6 @@ public class SimpleWaveDB : MonoBehaviour, IWaveProvider
         waveIndex += 1;
         number += 1;
         CanStartMoreWaves = waveIndex < assets.Count - 1;
-        return assets[waveIndex].GenerateWaveFromAsset(number);
+        return assets[waveIndex].GenerateWaveFromAsset(points, number);
     }
 }

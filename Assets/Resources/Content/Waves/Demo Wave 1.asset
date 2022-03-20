@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad29aec19fc8a584f9ae73bdd4ace5ec, type: 3}
   m_Name: Demo Wave 1
   m_EditorClassIdentifier: 
+  spawnables:
+    items:
+    - obj: {fileID: 0}
+      weight: 0
   duration: 5

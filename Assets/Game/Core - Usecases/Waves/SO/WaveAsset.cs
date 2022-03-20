@@ -3,5 +3,5 @@ using UnityEngine;
 
 abstract public class WaveAsset : ScriptableObject
 {
-    abstract public Wave GenerateWaveFromAsset(int number);
+    abstract public Wave GenerateWaveFromAsset(SpawnPoints points, int number);
 }
