@@ -52,6 +52,12 @@ public class Weapon
     {
         model.muzzlePlayer.Play();
     }
+
+    public void PlayHitEffect(Vector3 hitPoint)
+    {
+        var effect = GameObject.Instantiate(model.hitEffectPrefab);
+        effect.transform.position = hitPoint;
+    }
 }
 
 public class NullWeapon : Weapon

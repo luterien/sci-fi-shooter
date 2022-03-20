@@ -3,5 +3,6 @@ using UnityEngine;
 
 public interface IDamager
 {
-    T GetComponent<T>();
+    //T GetComponent<T>();
+    void ApplyDamageEffect();
 }

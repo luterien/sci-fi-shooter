@@ -10,7 +10,7 @@ abstract public class Damageable : MonoBehaviour, IDamageable
         unitHealth.TakeDamage(damage);
     }
 
-    virtual public void TakeDamage(Damage damage, Vector3 point)
+    virtual public void TakeDamage(Damage damage, Vector3 point, IDamager damager)
     {
         TakeDamage(damage);
     }

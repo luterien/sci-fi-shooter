@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class FirearmUser : Shooter
+public class FirearmUser : Shooter, IDamager
 {
     public WeaponUser weaponUser;
 
@@ -43,10 +43,17 @@ public class FirearmUser : Shooter
 
             if (damageable != null)
             {
-                damageable.TakeDamage(new Damage(1f), hit.point);
+                damageable.TakeDamage(new Damage(1f), hit.point, this);
             }
+
+            weaponUser.EquippedWeapon.PlayHitEffect(hit.point);
         }
 
         weaponUser.EquippedWeapon.OnShot();
+    }
+
+    public void ApplyDamageEffect()
+    {
+        
     }
 }

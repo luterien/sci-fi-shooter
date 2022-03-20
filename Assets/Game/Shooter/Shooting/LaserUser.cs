@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class LaserUser : Shooter
+public class LaserUser : Shooter, IDamager
 {
     public WeaponUser weaponUser;
 
@@ -53,7 +53,7 @@ public class LaserUser : Shooter
 
                     if (hitCounter >= maxHitCounter)
                     {
-                        damageable.TakeDamage(new Damage(1f), hit.point);
+                        damageable.TakeDamage(new Damage(1f), hit.point, this);
                         hitCounter = 0;
                     }
                 }
@@ -88,5 +88,10 @@ public class LaserUser : Shooter
 
         laserStart.gameObject.SetActive(false);
         laserImpact.gameObject.SetActive(false);
+    }
+
+    public void ApplyDamageEffect()
+    {
+        
     }
 }

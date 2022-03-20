@@ -9,6 +9,9 @@ public class WeaponModel : MonoBehaviour
     public Transform positionSource;
     public Transform directionSource;
 
+    [Space]
+    public GameObject hitEffectPrefab;
+
     [Header("IK Settings")]
     public Transform leftHandPosition;
     public Transform rightHandPosition;
