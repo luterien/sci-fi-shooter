@@ -19,6 +19,8 @@ public class SpawnInIntervals : ISpawner
     {
         timer = new Timer(interval);
         timer.Start();
+
+        Execute();
     }
 
     public void Tick(float deltaTime)

@@ -11,7 +11,7 @@ public class TimedWave : Wave
     {
         this.asset = asset;
 
-        spawner = new SpawnInIntervals(spawnables, points, 5f);
+        spawner = new SpawnInIntervals(spawnables, points, 10f);
     }
 
     public override void OnStart()
