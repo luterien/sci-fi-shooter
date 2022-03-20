@@ -16,4 +16,3 @@ abstract public class Wave
     abstract public void Tick(float deltaTime);
     abstract public void OnEnd();
 }
-

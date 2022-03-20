@@ -49,6 +49,8 @@ public class TopDownController : MonoBehaviour
 
     private void Update()
     {
+        if (GameController.Paused) return;
+
         var v = move.ReadValue<Vector2>().y;
         var h = move.ReadValue<Vector2>().x;
 

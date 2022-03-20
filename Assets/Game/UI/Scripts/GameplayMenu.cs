@@ -24,7 +24,10 @@ public class GameplayMenu : MonoBehaviour
         {
             var menuOpen = content.activeSelf;
 
-            Time.timeScale = menuOpen ? 1f : 0f;
+            if (menuOpen)
+                GameController.Resume();
+            else
+                GameController.Pause();
 
             content.SetActive(!menuOpen);
         }
