@@ -5,6 +5,8 @@ using UnityEngine;
 [Serializable]
 public class Weapon
 {
+    public event Action<Weapon> OnFire;
+
     public WeaponAsset assignedAsset;
     [Space]
     public Transform positionSource;
@@ -27,6 +29,7 @@ public class Weapon
     public void OnShot()
     {
         mag -= 1;
+        OnFire?.Invoke(this);
     }
 
     public void Reload()
