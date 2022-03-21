@@ -7,7 +7,7 @@ public class WaveStartState : WaveState
 
     public WaveStartState(WaveManager manager, WaveManagerUI ui) : base(manager, ui) 
     {
-        timer = new Timer(5.1f);
+        timer = new Timer(15f);
     }
 
     override public void OnEnter()

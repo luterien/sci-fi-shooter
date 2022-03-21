@@ -7,9 +7,13 @@ public class TimedWave : Wave
     private Timer timer;
     private ISpawner spawner;
 
+    override public int RemainingMonsters { get; set; }
+
     public TimedWave(Spawnables spawnables, SpawnPoints points, TimedWaveAsset asset, int number) : base(number)
     {
         this.asset = asset;
+
+        RemainingMonsters = -1;
 
         spawner = new SpawnInIntervals(spawnables, points, 10f);
     }

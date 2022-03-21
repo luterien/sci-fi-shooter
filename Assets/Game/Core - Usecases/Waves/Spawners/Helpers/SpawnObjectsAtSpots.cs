@@ -9,7 +9,8 @@ public static class SpawnObjectsAtSpots
 
         for (int i = 0; i < spawnCount; i++)
         {
-            Object.Instantiate(spawnables.items[0].obj, points.points[i]);
+            var obj = Object.Instantiate(spawnables.items[0].obj, points.spawnPoint);
+            obj.transform.position = points.points[i].position;
         }
     }
 }

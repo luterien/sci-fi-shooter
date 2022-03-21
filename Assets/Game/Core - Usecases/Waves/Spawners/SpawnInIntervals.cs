@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SpawnInIntervals : ISpawner
 {
+    public bool CanSpawn { get { return timer.Stopped; } }
+
     private float interval;
     private Timer timer;
     private Spawnables spawnables;
@@ -26,13 +28,6 @@ public class SpawnInIntervals : ISpawner
     public void Tick(float deltaTime)
     {
         timer.Tick(deltaTime);
-
-        if (timer.Stopped)
-        {
-            Execute();
-
-            timer.Restart();
-        }
     }
 
     public void OnEnd()
@@ -40,8 +35,10 @@ public class SpawnInIntervals : ISpawner
         timer = null;
     }
 
-    private void Execute()
+    public int Execute()
     {
+        timer.Restart();
         SpawnObjectsAtSpots.Execute(spawnables, points);
+        return points.points.Count;
     }
 }

@@ -7,6 +7,8 @@ abstract public class Wave
 
     public bool IsComplete { get; set; }
 
+    abstract public int RemainingMonsters { get; set; }
+
     public Wave(int number)
     {
         this.number = number;

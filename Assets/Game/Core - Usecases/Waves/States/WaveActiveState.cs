@@ -26,6 +26,11 @@ public class WaveActiveState : WaveState
 
         if (wave.IsComplete)
             IsComplete = true;
+
+        if (wave.RemainingMonsters > -1)
+        {
+            ui.SetRemainingMonsterText(wave.RemainingMonsters);
+        }
     }
 
     override public void OnExit()

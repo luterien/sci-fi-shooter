@@ -10,6 +10,7 @@ public class WaveManagerUI : MonoBehaviour
 
     public TMP_Text countdownText;
     public TMP_Text currentWaveText;
+    public TMP_Text remainingMonsterText;
 
     public void SetTimerCooldownText(string value)
     {
@@ -29,5 +30,16 @@ public class WaveManagerUI : MonoBehaviour
     public void ToggleCurrentWaveUI(bool active)
     {
         waveActiveUI.SetActive(active);
+    }
+
+    public void SetRemainingMonsterText(int value)
+    {
+        if (value < 0)
+        {
+            remainingMonsterText.gameObject.SetActive(false);
+            return;
+        }
+
+        remainingMonsterText.text = string.Format("{0} enemies remaining", value);
     }
 }

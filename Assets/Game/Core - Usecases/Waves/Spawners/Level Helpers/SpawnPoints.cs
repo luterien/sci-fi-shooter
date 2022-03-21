@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class SpawnPoints : MonoBehaviour
 {
+    public Transform spawnPoint;
+
+    [Space]
     public List<Transform> points;
 
     private void Awake()
