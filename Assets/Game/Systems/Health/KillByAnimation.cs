@@ -21,5 +21,9 @@ public class KillByAnimation : MonoBehaviour
 
         GetComponent<Damageable>().enabled = false;
         GetComponent<Collider>().enabled = false;
+
+        ai.transform.SetParent(null);
+
+        Destroy(ai.gameObject, 2f);
     }
 }
