@@ -21,8 +21,9 @@ public class Health
     {
         if (amount >= current)
         {
+            var rtn = current;
             current = 0f;
-            return current;
+            return rtn;
         }
 
         current -= amount;

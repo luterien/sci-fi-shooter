@@ -20,6 +20,7 @@ public class Weapon
     public WeaponModel model;
 
     public bool CanShoot => mag > 0;
+    public float Damage => assignedAsset.firePower;
 
     public Weapon()
     {

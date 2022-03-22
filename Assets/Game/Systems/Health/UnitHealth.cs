@@ -8,9 +8,12 @@ public class UnitHealth : MonoBehaviour
 
     private Health health;
 
+    [Header("Settings")]
+    public float hitPoints = 10f;
+
     private void Awake()
     {
-        health = new Health(10f);
+        health = new Health(hitPoints);
     }
 
     public void TakeDamage(Damage damage)
