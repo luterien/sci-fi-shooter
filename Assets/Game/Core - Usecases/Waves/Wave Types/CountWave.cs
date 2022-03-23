@@ -32,7 +32,9 @@ public class CountWave : Wave
         timer.Restart();
         spawner.OnStart();
 
-        canSpawn = true; 
+        canSpawn = true;
+
+        RemainingMonsters = asset.maxUnits;
     }
 
     public override void Tick(float deltaTime)
@@ -75,6 +77,6 @@ public class CountWave : Wave
     {
         timer.Restart();
 
-        RemainingMonsters = spawnPoint.childCount;
+        RemainingMonsters = spawnPoint.childCount + (asset.maxUnits - spawnedUnitTotal);
     }
 }

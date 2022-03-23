@@ -15,6 +15,13 @@ public class WaveManager : MonoBehaviour
     private WaveActiveState wave;
     private WaveStartState start;
     private WaveEndState end;
+    private WaveCooldownState cooldown;
+    private WaveSuccessState success;
+    private WaveFailState fail;
+    private WavePrepareState prepare;
+
+    public Wave activeWave;
+    public WaveRecord waveRecord;
 
     private void Awake()
     {
@@ -23,7 +30,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Setup());
+        Setup();
     }
 
     private void Update()
@@ -32,26 +39,37 @@ public class WaveManager : MonoBehaviour
             stateMachine.Tick();
     }
 
-    private IEnumerator Setup()
+    private void Setup()
     {
-        yield return new WaitForSeconds(5f);
-
         stateMachine = new StateMachine(true);
 
-        wave = new WaveActiveState(this, uiManager, waveProvider);
+        prepare = new WavePrepareState(this, uiManager, waveProvider);
         start = new WaveStartState(this, uiManager);
+        wave = new WaveActiveState(this, uiManager);
+        cooldown = new WaveCooldownState(this, uiManager);
+        success = new WaveSuccessState(this, uiManager);
+        fail = new WaveFailState(this, uiManager);
+
         end = new WaveEndState(this, uiManager);
 
-        stateMachine.AddTransition(start, wave, () => start.IsComplete);
-        stateMachine.AddTransition(wave, start, () => wave.IsComplete && waveProvider.CanStartMoreWaves);
-        stateMachine.AddTransition(wave, end, () => wave.IsComplete && !waveProvider.CanStartMoreWaves);
+        stateMachine.AddTransition(prepare, start, () => prepare.IsComplete && activeWave != null);
+        stateMachine.AddTransition(prepare, end, () => prepare.IsComplete && activeWave == null);
 
-        stateMachine.SetState(start);
+        stateMachine.AddTransition(start, wave, () => start.IsComplete);
+
+        stateMachine.AddTransition(wave, success, () => start.IsComplete && waveRecord.success);
+        stateMachine.AddTransition(wave, fail, () => start.IsComplete && !waveRecord.success);
+
+        stateMachine.AddTransition(success, prepare, () => success.IsComplete);
+
+        stateMachine.SetState(prepare);
     }
 
-    private void OnDisable()
+    public void TurnOff()
     {
-        StopAllCoroutines();
+        stateMachine = null;
+
+        enabled = false;
     }
 }
 

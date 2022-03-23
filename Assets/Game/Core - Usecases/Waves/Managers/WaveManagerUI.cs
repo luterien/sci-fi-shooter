@@ -7,6 +7,7 @@ public class WaveManagerUI : MonoBehaviour
     public GameObject waveActiveUI;
     public GameObject waveCountdownUI;
     public GameObject waveCompleteUI;
+    public GameObject waveFailUI;
 
     public TMP_Text countdownText;
     public TMP_Text currentWaveText;
@@ -41,5 +42,15 @@ public class WaveManagerUI : MonoBehaviour
         }
 
         remainingMonsterText.text = string.Format("{0} enemies remaining", value);
+    }
+
+    public void ToggleWaveClearScreen(bool active)
+    {
+        waveCompleteUI.SetActive(active);
+    }
+
+    public void ToggleWaveFailScreen(bool active)
+    {
+        waveFailUI.SetActive(active);
     }
 }

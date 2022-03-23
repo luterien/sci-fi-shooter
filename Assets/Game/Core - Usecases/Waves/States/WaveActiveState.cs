@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class WaveActiveState : WaveState
 {
-    private IWaveProvider waveProvider;
     private Wave wave;
 
-    public WaveActiveState(WaveManager manager, WaveManagerUI ui, IWaveProvider waveProvider) : base(manager, ui) 
+    public WaveActiveState(WaveManager manager, WaveManagerUI ui) : base(manager, ui) 
     {
-        this.waveProvider = waveProvider;
+        
     }
 
     override public void OnEnter()
     {
-        wave = waveProvider.Get();
+        wave = manager.activeWave;
         wave.OnStart();
 
         ui.ToggleCurrentWaveUI(true);

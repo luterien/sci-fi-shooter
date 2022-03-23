@@ -1,0 +1,44 @@
+
+> Trigger Wave
+
+
+	> Wave start state 
+
+		- 10 seconds prep time
+
+	> Wave active state
+
+		- Spawn 5 monsters every 5 sec
+		- Lasts for 2 minutes
+
+		UI:
+
+			Wave I
+			Remaining: total_possible - killed
+
+			Time passed: 02:25
+
+	> Wave fail ?
+
+		- Game over. Restart.
+
+		UI:
+
+			~~ Your base is overrun by monsters ~~
+
+			Hide all wave related UI
+
+	> Wave success ?
+
+		UI:
+
+			Wave I
+			Cleared
+
+			Rewards;
+
+			(click OK to acquire rewards)
+
+			After clicking OK, wait 5 seconds for countdown
+	
+
