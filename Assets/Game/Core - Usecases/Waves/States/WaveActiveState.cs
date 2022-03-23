@@ -23,7 +23,7 @@ public class WaveActiveState : WaveState
     {
         wave.Tick(Time.deltaTime);
 
-        if (wave.IsComplete)
+        if (wave.RemainingMonsters <= 0)
             IsComplete = true;
 
         if (wave.RemainingMonsters > -1)

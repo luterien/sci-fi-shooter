@@ -51,7 +51,7 @@ public class EnemyAI : MonoBehaviour
 
     private void SetUpStateMachine()
     {
-        stateMachine = new StateMachine(true);
+        stateMachine = new StateMachine();
 
         attack = new AIAttack(animator);
         chase = new AIChase(animator, targetProvider, pathfinder);
