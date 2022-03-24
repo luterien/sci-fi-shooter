@@ -1447,6 +1447,7 @@ GameObject:
   - component: {fileID: 239948932}
   - component: {fileID: 239948934}
   - component: {fileID: 239948933}
+  - component: {fileID: 239948935}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -1475,7 +1476,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239948931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a38ce342183a8345a7a5875a4debf3a, type: 3}
   m_Name: 
@@ -1503,6 +1504,26 @@ MonoBehaviour:
   animator: {fileID: 544593489}
   movespeed: 5
   turnSpeed: 5
+--- !u!114 &239948935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239948931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0412fae941c004fae800ae9677409d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  mainBody: {fileID: 948075661}
+  animator: {fileID: 544593489}
+  movespeed: 4
+  deadZoneRange: 1
+  turnSpeed: 2
 --- !u!1001 &241495389
 PrefabInstance:
   m_ObjectHideFlags: 0
