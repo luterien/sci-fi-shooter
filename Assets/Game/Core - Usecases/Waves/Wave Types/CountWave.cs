@@ -12,7 +12,7 @@ public class CountWave : Wave
 
     private bool canSpawn = true;
 
-    override public int RemainingMonsters { get; set; }
+    override public int RemainingMonsters { get { return spawner.Count; } }
 
     public CountWave(Spawnables spawnables, SpawnPoints points, CountWaveAsset asset, int number) : base(number)
     {
@@ -20,7 +20,7 @@ public class CountWave : Wave
 
         spawnPoint = points.spawnPoint;
 
-        spawner = new SpawnInIntervals(spawnables, points, 10f);
+        spawner = new SpawnInIntervals(spawnables, points, 10f, asset.maxUnits);
     }
 
     public override void OnStart()
@@ -29,8 +29,6 @@ public class CountWave : Wave
 
         canSpawn = true;
         spawnedUnitTotal = 0;
-
-        RemainingMonsters = asset.maxUnits;
     }
 
     public override void Tick(float deltaTime)
@@ -41,8 +39,6 @@ public class CountWave : Wave
             return;
         }
 
-        UpdateRemaining();
-
         if (canSpawn)
         {
             spawner.Tick(deltaTime);
@@ -51,7 +47,6 @@ public class CountWave : Wave
             {
                 var count = spawner.Execute();
                 spawnedUnitTotal += count;
-                UpdateRemaining();
             }
 
             if (spawnedUnitTotal >= asset.maxUnits)
@@ -62,10 +57,5 @@ public class CountWave : Wave
     public override void OnEnd()
     {
         spawner.OnEnd();
-    }
-
-    private void UpdateRemaining()
-    {
-        RemainingMonsters = spawnPoint.childCount + (asset.maxUnits - spawnedUnitTotal);
     }
 }

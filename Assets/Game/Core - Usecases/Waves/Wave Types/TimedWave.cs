@@ -7,7 +7,7 @@ public class TimedWave : Wave
     private Timer timer;
     private ISpawner spawner;
 
-    override public int RemainingMonsters { get; set; }
+    override public int RemainingMonsters { get; }
 
     public TimedWave(Spawnables spawnables, SpawnPoints points, TimedWaveAsset asset, int number) : base(number)
     {
@@ -15,7 +15,7 @@ public class TimedWave : Wave
 
         RemainingMonsters = -1;
 
-        spawner = new SpawnInIntervals(spawnables, points, 10f);
+        spawner = new SpawnInIntervals(spawnables, points, 10f, 1);
     }
 
     public override void OnStart()

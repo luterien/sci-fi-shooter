@@ -3,6 +3,7 @@ using UnityEngine;
 
 public interface ISpawner
 {
+    int Count { get; set; }
     bool CanSpawn { get; }
 
     void OnStart();

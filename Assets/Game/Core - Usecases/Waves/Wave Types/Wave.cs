@@ -7,7 +7,7 @@ abstract public class Wave
 
     public bool IsComplete { get; set; }
 
-    abstract public int RemainingMonsters { get; set; }
+    abstract public int RemainingMonsters { get; }
 
     public Wave(int number)
     {

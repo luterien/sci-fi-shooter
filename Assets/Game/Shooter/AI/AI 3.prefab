@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3477996845257710289}
   - component: {fileID: 4706562438008001261}
   - component: {fileID: 8451964890199709033}
+  - component: {fileID: 621925181413734586}
   m_Layer: 0
   m_Name: AI 3
   m_TagString: Untagged
@@ -134,7 +135,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c335ce8c9cf6f7c4d98e410c4f6fc2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultTarget: {fileID: 0}
+--- !u!114 &621925181413734586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477996845257710253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dcdb8fba68d8b48b3334906679201c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthComponent: {fileID: 3477996846089805015}
 --- !u!1 &3477996845630626697
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab35335c712af464ea66d00cc593ab1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPoints: 10
 --- !u!114 &3477996846089805014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +379,54 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9987e2f8c20db3043889e582ed5697f7, type: 2}
+    - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.20211998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.1403455
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.010142326
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.31844333
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.04379189
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.17077614
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.13759243
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.0232106
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.13142765
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.30143875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.14060897
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.28409314
+      objectReference: {fileID: 0}
     - target: {fileID: 5880290126723731848, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_Name
       value: Barbarian
