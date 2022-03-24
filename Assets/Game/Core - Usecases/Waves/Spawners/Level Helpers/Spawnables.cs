@@ -5,6 +5,11 @@ using UnityEngine;
 public class Spawnables
 {
     public List<Spawnable> items;
+
+    public GameObject GetRandom()
+    {
+        return items[Random.Range(0, items.Count)].obj;
+    }
 }
 
 [System.Serializable]

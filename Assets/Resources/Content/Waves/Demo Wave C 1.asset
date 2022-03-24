@@ -16,4 +16,6 @@ MonoBehaviour:
     items:
     - obj: {fileID: 3477996845257710253, guid: a42296ca69ed7e949b630ef667abaa28, type: 3}
       weight: 1
+    - obj: {fileID: 3477996845257710253, guid: abed82a02bd19264db4d9b699067dd66, type: 3}
+      weight: 1
   maxUnits: 10

@@ -48,7 +48,7 @@ public class SpawnInIntervals : ISpawner
 
         for (int i = 0; i < spawnCount; i++)
         {
-            var obj = Object.Instantiate(spawnables.items[0].obj, points.spawnPoint);
+            var obj = Object.Instantiate(spawnables.GetRandom(), points.spawnPoint);
 
             obj.GetComponent<EnemyUnit>().healthComponent.OnDeath += RemoveSpawned;
             obj.transform.position = points.points[i].position;
