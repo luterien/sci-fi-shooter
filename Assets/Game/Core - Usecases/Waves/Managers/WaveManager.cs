@@ -57,8 +57,10 @@ public class WaveManager : MonoBehaviour
 
         stateMachine.AddTransition(start, wave, () => start.IsComplete);
 
-        stateMachine.AddTransition(wave, success, () => start.IsComplete && waveRecord.success);
-        stateMachine.AddTransition(wave, fail, () => start.IsComplete && !waveRecord.success);
+        stateMachine.AddTransition(wave, cooldown, () => wave.IsComplete);
+
+        stateMachine.AddTransition(cooldown, success, () => cooldown.IsComplete && waveRecord.success);
+        stateMachine.AddTransition(cooldown, fail, () => cooldown.IsComplete && !waveRecord.success);
 
         stateMachine.AddTransition(success, prepare, () => success.IsComplete);
 

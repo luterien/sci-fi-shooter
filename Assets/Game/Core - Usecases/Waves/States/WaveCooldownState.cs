@@ -7,12 +7,12 @@ public class WaveCooldownState : WaveState
 
     override public void OnEnter()
     {
-
+        manager.waveRecord = new WaveRecord(true, 2f);
     }
 
     override public void Tick()
     {
-
+        IsComplete = true;
     }
 
     override public void OnExit()
