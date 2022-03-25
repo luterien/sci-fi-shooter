@@ -65,7 +65,9 @@ game pause state should disable all moving things
 
 
 
+-0.2132403, 0.02110487, 0.1736214
 
+7.861, 6.148, 5.373
 
 
 

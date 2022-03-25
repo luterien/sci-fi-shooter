@@ -6,6 +6,10 @@ public class IKWeaponControl : MonoBehaviour
 {
     public Animator animator;
 
+    [Header("Transform Settings")]
+    public Vector3 ikLocalPosition;
+    public Quaternion ikLocalRotation;
+
     [Header("Rig Dependencies")]
     public Rig rig;
     [Space]
@@ -23,6 +27,9 @@ public class IKWeaponControl : MonoBehaviour
         rig.weight = 1f;
         SetWeaponHolderParent(IKWeaponHolder);
 
+        weaponsHolder.localRotation = ikLocalRotation;
+        weaponsHolder.localPosition = ikLocalPosition;
+
         leftHandConstraint.position = model.leftHandPosition.position;
         rightHandConstraint.position = model.rightHandPosition.position;
     }
@@ -31,12 +38,13 @@ public class IKWeaponControl : MonoBehaviour
     {
         rig.weight = 0f;
         SetWeaponHolderParent(animationWeaponHolder);
+
+        weaponsHolder.localRotation = Quaternion.identity;
+        weaponsHolder.localPosition = Vector3.zero;
     }
 
     private void SetWeaponHolderParent(Transform parent)
     {
         weaponsHolder.SetParent(parent);
-        weaponsHolder.localRotation = Quaternion.identity;
-        weaponsHolder.localPosition = Vector3.zero;
     }
 }
