@@ -85,11 +85,13 @@ public class TopDownSmoothController : MonoBehaviour
 
                 animator.SetFloat("v", dot);
                 animator.SetFloat("h", dot2);
+                animator.SetBool("Moving", true);
             }
             else
             {
                 animator.SetFloat("v", 0f);
                 animator.SetFloat("h", 0f);
+                animator.SetBool("Moving", false);
             }
         }
         else
@@ -98,6 +100,7 @@ public class TopDownSmoothController : MonoBehaviour
 
             animator.SetFloat("v", 0f);
             animator.SetFloat("h", 0f);
+            animator.SetBool("Moving", false);
         }
 
         if (targetRotation != null)

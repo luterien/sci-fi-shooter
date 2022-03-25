@@ -42,3 +42,37 @@
 			After clicking OK, wait 5 seconds for countdown
 	
 
+
+
+
+
+
+TODO
+
+replace IK with shooting pose
+weapon should be held lower
+sphere around player
+earn gold + points on monster kill
+show monster score on screen
+all weapons on ui, some locked some unlocked (black)
+
+setup barriers
+setup turrets after wave clear
+
+
+game pause state should disable all moving things
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
