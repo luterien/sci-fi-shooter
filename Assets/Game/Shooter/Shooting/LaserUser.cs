@@ -53,7 +53,7 @@ public class LaserUser : Shooter, IDamager
 
                     if (hitCounter >= maxHitCounter)
                     {
-                        damageable.TakeDamage(new Damage(weaponUser.EquippedWeapon.Damage), hit.point, this);
+                        damageable.TakeDamage(DamageCalculator.Execute(weaponUser.EquippedWeapon.Damage), hit.point, this);
                         hitCounter = 0;
                     }
                 }

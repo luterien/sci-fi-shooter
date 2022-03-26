@@ -43,7 +43,7 @@ public class FirearmUser : Shooter, IDamager
 
             if (damageable != null)
             {
-                damageable.TakeDamage(new Damage(weaponUser.EquippedWeapon.Damage), hit.point, this);
+                damageable.TakeDamage(DamageCalculator.Execute(weaponUser.EquippedWeapon.Damage), hit.point, this);
 
                 GameController.Pause();
             }
