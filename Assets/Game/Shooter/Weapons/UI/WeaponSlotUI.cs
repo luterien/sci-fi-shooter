@@ -9,34 +9,30 @@ public class WeaponSlotUI : MonoBehaviour
     public Color selectedColor;
     public Color unselectedColor;
 
+    [Header("Dependencies")]
     public Image backgroundImage;
-    public TMP_Text weaponName;
 
+    [Header("Refs")]
     public WeaponSlot assignedSlot;
     public WeaponAsset asset;
     public WeaponListUI weaponList;
 
-    private bool selected;
+    public EquipableWeaponUI selected;
 
     public void SetSelected(bool selected)
     {
-        this.selected = selected;
-
         backgroundImage.color = selected ? selectedColor : unselectedColor;
-    }
-
-    private void OnEnable()
-    {
-        weaponName.text = asset.name;
     }
 
     public void SetWeapon(WeaponAsset asset)
     {
         this.asset = asset;
 
-        weaponName.text = asset.name;
-        weaponList.UpdateWeapons(this);
-
         assignedSlot.SetWeapon(asset);
+    }
+
+    public void SetWeapon(EquipableWeaponUI weaponUI)
+    {
+        selected = weaponUI;
     }
 }

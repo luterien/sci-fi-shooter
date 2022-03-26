@@ -12,6 +12,7 @@ public class EquipableWeaponUI : MonoBehaviour
     public Image background;
     public TMP_Text weaponName;
     public Button btn;
+    public Image border;
 
     public WeaponAsset asset;
 
@@ -24,28 +25,7 @@ public class EquipableWeaponUI : MonoBehaviour
 
     public void SetSelected(bool selected)
     {
-        background.color = selected ? selectedColor : unselectedColor;
-    }
-
-    public void Display(bool status)
-    {
-        content.SetActive(status);
-    }
-
-    public void SetListener(WeaponSlotUI slotUI)
-    {
-        btn.onClick.RemoveAllListeners();
-        btn.onClick.AddListener(() => EquipForSlotUI(slotUI));
-    }
-
-    public void Load(WeaponSlotUI slotUI)
-    {
-        SetListener(slotUI);
-        SetSelected(slotUI.asset == asset);
-    }
-
-    private void EquipForSlotUI(WeaponSlotUI slotUI)
-    {
-        slotUI.SetWeapon(asset);
+        print(selected);
+        border.gameObject.SetActive(selected);
     }
 }

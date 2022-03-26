@@ -1,42 +1,48 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponListUI : MonoBehaviour
 {
-    public GameObject content;
+    public Transform content;
+
+    public EquipableWeaponUI[] weapons;
+
+    public void SetSelectWeapon(EquipableWeaponUI selected)
+    {
+        foreach (var weap in weapons)
+        {
+            weap.SetSelected(weap == selected);
+        }
+    }
 
     public void ListWeapons(WeaponSlotUI selected)
     {
-        content.SetActive(true);
+        StopCoroutine(ActivateWithDelay());
 
-        var uis = content.GetComponentsInChildren<EquipableWeaponUI>(true);
-
-        foreach (var ui in uis)
+        foreach (Transform child in content)
         {
-            ui.Display(false);
-            ui.Load(selected);
+            child.gameObject.SetActive(false);
         }
 
-        DisplayWeapons(uis);
+        StartCoroutine(ActivateWithDelay());
+
+        if (selected.selected != null)
+            SetSelectWeapon(selected.selected);
     }
 
-    public void UpdateWeapons(WeaponSlotUI slotUI)
+    private IEnumerator ActivateWithDelay()
     {
-        var uis = content.GetComponentsInChildren<EquipableWeaponUI>(true);
-
-        foreach (var ui in uis)
+        foreach (Transform child in content)
         {
-            ui.Display(true);
-            ui.SetSelected(ui.asset == slotUI.asset);
+            yield return new WaitForSeconds(0.05f);
+            child.gameObject.SetActive(true);
         }
     }
 
-    private void DisplayWeapons(EquipableWeaponUI[] uis)
+    private void OnDisable()
     {
-        foreach (var ui in uis)
-        {
-            ui.Display(true);
-        }
+        StopAllCoroutines();
     }
 }
