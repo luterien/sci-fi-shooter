@@ -36,8 +36,8 @@ public class BulletUI : MonoBehaviour
 
     private void StopTrackingWeapon(Weapon obj)
     {
-        trackedWeapon = null;
         trackedWeapon.OnFire -= UpdateBulletText;
+        trackedWeapon = null;
         user.OnWeaponReload -= User_OnWeaponReload;
         UpdateBulletText(trackedWeapon);
     }

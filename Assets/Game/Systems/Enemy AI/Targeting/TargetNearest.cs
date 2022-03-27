@@ -20,6 +20,9 @@ public class TargetNearest : MonoBehaviour, ITargetProvider
                 }
 
                 targetEnemy = value.GetComponent<EnemyUnit>();
+
+                if (targetEnemy == null) return;
+
                 targetEnemy.healthComponent.OnDeath += ActivateSearch;
 
                 searching = false;
