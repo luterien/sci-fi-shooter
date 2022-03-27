@@ -25,7 +25,6 @@ public class EquipableWeaponUI : MonoBehaviour
 
     public void SetSelected(bool selected)
     {
-        print(selected);
         border.gameObject.SetActive(selected);
     }
 }
