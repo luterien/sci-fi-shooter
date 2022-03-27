@@ -18,7 +18,7 @@ public class UnitHealth : MonoBehaviour
 
     public void TakeDamage(Damage damage)
     {
-        var hpLoss = health.TakeDamage(damage.amount);
+        var hpLoss = health.TakeDamage(damage.Amount);
         OnDamageTaken?.Invoke(new DamageTaken(health, damage, hpLoss, health.IsBelowZero));
 
         if (health.IsBelowZero) 

@@ -14,7 +14,6 @@ public class WeaponSlotUI : MonoBehaviour
 
     [Header("Refs")]
     public WeaponSlot assignedSlot;
-    public WeaponAsset asset;
     public WeaponListUI weaponList;
 
     public EquipableWeaponUI selected;
@@ -24,15 +23,9 @@ public class WeaponSlotUI : MonoBehaviour
         backgroundImage.color = selected ? selectedColor : unselectedColor;
     }
 
-    public void SetWeapon(WeaponAsset asset)
-    {
-        this.asset = asset;
-
-        assignedSlot.SetWeapon(asset);
-    }
-
     public void SetWeapon(EquipableWeaponUI weaponUI)
     {
         selected = weaponUI;
+        assignedSlot.SetWeapon(weaponUI.asset);
     }
 }

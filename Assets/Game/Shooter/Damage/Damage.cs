@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Damage
 {
-    public float amount;
+    public int Amount;
 
     public Damage(float amount)
     {
-        this.amount = amount;
+        Amount = (int)amount;
     }
 }
