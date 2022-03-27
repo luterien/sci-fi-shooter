@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3477996845257710255}
   - component: {fileID: 3477996845257710289}
   - component: {fileID: 4706562438008001261}
-  - component: {fileID: 8451964890199709033}
   - component: {fileID: 621925181413734586}
+  - component: {fileID: 5261668112240149959}
   m_Layer: 0
   m_Name: AI 3
   m_TagString: Untagged
@@ -123,18 +123,6 @@ MonoBehaviour:
   mainBody: {fileID: 3477996845257710252}
   animator: {fileID: 1210321709386010389}
   attackRange: 1
---- !u!114 &8451964890199709033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3477996845257710253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c335ce8c9cf6f7c4d98e410c4f6fc2dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &621925181413734586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +136,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthComponent: {fileID: 3477996846089805015}
+--- !u!114 &5261668112240149959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477996845257710253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc78259b16270498bddf7acaefdcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainBody: {fileID: 3477996845257710252}
+  range: 6
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  detectInterval: 1
 --- !u!1 &3477996845630626697
 GameObject:
   m_ObjectHideFlags: 0

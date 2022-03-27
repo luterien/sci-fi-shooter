@@ -32,6 +32,12 @@ public class AIChase : IState
     public void Tick()
     {
         SetDestination();
+
+        if (targetProvider.TargetChanged)
+        {
+            target = targetProvider.Target;
+            targetProvider.ApplyReset();
+        }
     }
 
     public void OnExit()
