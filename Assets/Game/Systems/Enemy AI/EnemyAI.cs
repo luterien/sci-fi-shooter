@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
     protected StateMachine stateMachine;
 
     private ITargetProvider targetProvider;
+    private IAttackStrategyProvider attackStrategyProvider;
     private AIPath pathfinder;
 
     protected AILocomotion locomotion;
@@ -46,6 +47,8 @@ public class EnemyAI : MonoBehaviour
     private void LoadDependencies()
     {
         targetProvider = GetComponent<ITargetProvider>();
+        attackStrategyProvider = GetComponent<IAttackStrategyProvider>();
+
         pathfinder = GetComponent<AIPath>();
     }
 
@@ -53,7 +56,7 @@ public class EnemyAI : MonoBehaviour
     {
         stateMachine = new StateMachine();
 
-        attack = new AIAttack(animator);
+        attack = new AIAttack(animator, attackStrategyProvider);
         chase = new AIChase(animator, targetProvider, pathfinder);
         locomotion = new AILocomotion(animator);
         cooldown = new AICooldown(animator);

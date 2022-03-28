@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4706562438008001261}
   - component: {fileID: 621925181413734586}
   - component: {fileID: 5261668112240149959}
+  - component: {fileID: 3175485283028003208}
   m_Layer: 0
   m_Name: AI 3
   m_TagString: Untagged
@@ -154,6 +155,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   detectInterval: 1
+--- !u!114 &3175485283028003208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477996845257710253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d6dbc0f94b73f468b1d4ab4a147a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTime: 0
+  endTime: 0
+  duration: 0
+  hitbox: {fileID: 0}
 --- !u!1 &3477996845630626697
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,51 +404,51 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 9987e2f8c20db3043889e582ed5697f7, type: 2}
     - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: 0.20211998
+      value: 0.202106
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: 0.1403455
+      value: 0.14032254
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: 0.010142326
+      value: 0.010119945
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.31844333
+      value: 0.31842935
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.04379189
+      value: 0.043768916
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459010, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.17077614
+      value: 0.17078009
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: 0.13759243
+      value: 0.13759753
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: 0.0232106
+      value: 0.023171887
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: 0.13142765
+      value: 0.13140926
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 0.30143875
+      value: 0.30144385
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 0.14060897
+      value: 0.14054628
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126718459012, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 0.28409314
+      value: 0.28410438
       objectReference: {fileID: 0}
     - target: {fileID: 5880290126723731848, guid: 9539b535e8bcf43459f176e9bf890235, type: 3}
       propertyPath: m_Name
