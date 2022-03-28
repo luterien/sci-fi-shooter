@@ -15,5 +15,7 @@ public class Destructable : MonoBehaviour
     private void Health_OnDeath()
     {
         gameObject.layer = LayerMask.NameToLayer("Default");
+
+        Destroy(gameObject);
     }
 }

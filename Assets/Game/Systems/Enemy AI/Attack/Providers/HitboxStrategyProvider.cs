@@ -7,7 +7,7 @@ public class HitboxStrategyProvider : MonoBehaviour, IAttackStrategyProvider
     public float endTime;
     public float duration;
 
-    public MonoBehaviour hitbox;
+    public Hitbox hitbox;
 
     public IAttackStrategy Get()
     {
