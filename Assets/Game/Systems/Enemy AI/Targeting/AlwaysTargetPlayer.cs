@@ -1,18 +1,14 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 
 public class AlwaysTargetPlayer : MonoBehaviour, ITargetProvider
 {
+    public event Action OnTargetChanged;
+
     public Transform Target { get; set; }
-    public bool TargetChanged { get; set; }
 
     private void Awake()
     {
         Target = GameContext.Player;
-    }
-
-    public void ApplyReset()
-    {
-
     }
 }

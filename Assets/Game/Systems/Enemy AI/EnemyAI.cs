@@ -24,18 +24,26 @@ public class EnemyAI : MonoBehaviour
     [Header("Settings")]
     public float attackRange = 0.5f;
 
+    private string cname;
+
     [NonSerialized]
     public bool IsDead = false;
 
     private void Awake()
     {
+        cname = name;
+
         Load();    
     }
 
     private void Update()
     {
         if (stateMachine != null)
+        {
             stateMachine.Tick();
+
+            name = string.Format("{0} - {1}", cname, stateMachine._currentState);
+        }
     }
 
     public void Load()
@@ -74,6 +82,7 @@ public class EnemyAI : MonoBehaviour
         stateMachine.AddTransition(locomotion, chase, hasTarget);
         stateMachine.AddTransition(chase, locomotion, hasNoTarget);
         stateMachine.AddTransition(chase, attack, targetExistsInAttackRange);
+        stateMachine.AddTransition(attack, locomotion, hasNoTarget);
         stateMachine.AddTransition(attack, cooldown, attackComplete);
         stateMachine.AddTransition(cooldown, locomotion, hasNoTarget);
         stateMachine.AddTransition(cooldown, attack, cdOverTargetInRange);

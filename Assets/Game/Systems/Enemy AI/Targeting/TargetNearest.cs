@@ -1,9 +1,11 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetNearest : MonoBehaviour, ITargetProvider
 {
+    public event Action OnTargetChanged;
+
     private EnemyUnit targetEnemy;
 
     private Transform target;
@@ -28,11 +30,14 @@ public class TargetNearest : MonoBehaviour, ITargetProvider
                 searching = false;
                 target = value;
 
-                TargetChanged = true;
+                OnTargetChanged?.Invoke();
+            }
+            else
+            {
+                searching = true;
             }
         }
     }
-    public bool TargetChanged { get; set; }
 
     private bool searching = false;
 
@@ -79,6 +84,10 @@ public class TargetNearest : MonoBehaviour, ITargetProvider
                 var newTarget = targetDetector.GetNearestTarget();
                 Target = newTarget ?? defaultTarget;
             }
+            else if (Target == null)
+            {
+                Target = defaultTarget;
+            }
 
             timer.Restart();
         }
@@ -90,11 +99,6 @@ public class TargetNearest : MonoBehaviour, ITargetProvider
 
         target = null;
         targetEnemy = null;
-    }
-
-    public void ApplyReset()
-    {
-        TargetChanged = false;
     }
 
     private void OnEnable()

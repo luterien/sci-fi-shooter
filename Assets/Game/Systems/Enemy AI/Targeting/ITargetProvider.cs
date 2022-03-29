@@ -1,10 +1,9 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 
 public interface ITargetProvider
 {
-    public Transform Target { get; set; }
-    public bool TargetChanged { get; set; }
+    public event Action OnTargetChanged;
 
-    public void ApplyReset();
+    public Transform Target { get; set; }
 }

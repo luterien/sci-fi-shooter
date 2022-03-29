@@ -25,6 +25,7 @@ public class AIChase : IState
         target = targetProvider.Target;
 
         pathfinder.onSearchPath += Tick;
+        targetProvider.OnTargetChanged += UpdateTarget;
 
         animator.SetBool("Moving", true);
     }
@@ -32,17 +33,13 @@ public class AIChase : IState
     public void Tick()
     {
         SetDestination();
-
-        if (targetProvider.TargetChanged)
-        {
-            target = targetProvider.Target;
-            targetProvider.ApplyReset();
-        }
     }
 
     public void OnExit()
     {
         pathfinder.onSearchPath -= Tick;
+        targetProvider.OnTargetChanged -= UpdateTarget;
+
         pathfinder.canMove = false;
 
         animator.SetBool("Moving", false);
@@ -59,5 +56,10 @@ public class AIChase : IState
         {
             pathfinder.canMove = false;
         }
+    }
+
+    private void UpdateTarget()
+    {
+        target = targetProvider.Target;
     }
 }
